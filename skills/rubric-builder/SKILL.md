@@ -30,6 +30,7 @@ Don't proceed until the unit and the allowed outputs are unambiguous. If they're
 The single most common failure is a rubric whose criteria are generic ("is it high quality?") instead of anchored to *this* product's goal. Pull the criteria from what actually matters here.
 
 - From `problem.md` and the goal: what genuinely makes one item more valuable than another *for this specific user and goal*?
+- **Pull the user's _non-goals_, not just their goal.** What has the user explicitly said they *don't* want — even if it's adjacent or "good to know"? Non-goals are as sharp a signal as goals: they define what the rubric rules OUT. Capture them and build the exclusion into the gate criterion.
 - List candidate criteria, then cut ruthlessly. For each, ask: **does this criterion actually change the verdict?** If two items differ on it but you'd judge them the same, it's not a real criterion — cut it.
 - Aim for **3–6 criteria.** Fewer than 3 and you've probably restated the judgment; more than 6 and no one will apply it consistently.
 
