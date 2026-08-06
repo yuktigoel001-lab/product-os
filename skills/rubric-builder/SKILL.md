@@ -95,9 +95,12 @@ Name the file for the judgment (e.g. `relevance-rubric.md`). Fill concretely, or
 
 The rubric is a hypothesis until tested. Before it's trusted, it must be hand-applied to **8–10 real examples** and the results logged. Do NOT skip this — a rubric that's never been tested against real items is the single most common way this stage fails.
 
-Set it up:
-- Tell the user to gather 8–10 *real* examples from the actual domain (for learning-os: real pieces from their actual creators — a mix of clearly-relevant, clearly-irrelevant, and deliberately borderline).
-- The user and the rubric each judge every item. Where they disagree, **the rubric is wrong, not the user** — that disagreement is the signal to fix a criterion or a default.
+Set it up — and make the user's job concrete. Don't just say "go get some examples"; tell them exactly what to collect, in plain language, as a checklist:
+
+- **Give the user a categorised collection checklist.** Spell out, in simple language, the buckets of examples to gather and roughly how many of each — at minimum: _clearly-belongs_, _clearly-doesn't_, and _deliberately-borderline_ (the borderline ones test the rubric hardest). Adapt the category names to the judgment being tested.
+- **Tell them exactly what to capture per example**, as named fields, so they don't return with unusable samples. (For content-relevance judgments, that's typically: source/creator, platform, title, a link or one-line description, and format/length.)
+- **Ask the user to record their own gut call for each item** (in / out / which tier), kept separate, so it can be compared against the rubric's call.
+- The user and the rubric each judge every item independently. Where they disagree, **the rubric is wrong, not the user** — that disagreement is the signal to fix a criterion or a default.
 - Log it (the dry-run has its own file, `dry-run-log.md`). Iterate the rubric until it matches considered human judgment on the borderline cases.
 
 Frame this to the user as: "The rubric's written — but we don't trust it yet. Next we test it on real examples and fix what breaks."
@@ -115,6 +118,7 @@ Before writing `[name]-rubric.md`, walk the user through the criteria and decisi
 - Never resolve a dry-run disagreement by "correcting" the human to match the rubric. The human is ground truth; fix the rubric.
 - Never let criteria depend on outside knowledge the applier won't have — anchor them in the item + the goal.
 - Never exceed ~6 criteria. Consistency dies with complexity.
+- Never send the user off to collect dry-run examples with a vague "grab some samples." Give a plain-language, categorised checklist — the buckets, how many of each, and the exact per-item fields you need — or the samples come back unusable.
 
 ## Rules
 
@@ -133,6 +137,7 @@ Before writing `[name]-rubric.md`, walk the user through the criteria and decisi
 - [ ] Known limits stated
 - [ ] `[name]-rubric.md` written with no unfilled `[...]`
 - [ ] The dry-run is set up and the user knows it's the required next step
+- [ ] The user has a plain-language, categorised collection checklist for the dry-run (buckets + per-item fields)
 
 ## Handoff
 
