@@ -81,8 +81,8 @@ user can [do the core thing] end to end.]
 |---|---|---|
 | [risk] | [impact] | [mitigation, or `[NEED: ...]`] |
 
-**Open questions for the next stage:** [Anything prototype-scoper or design-spec
-needs to resolve.]
+**Open questions for the build:** [Anything `vibe-coding` needs resolved before
+building.]
 
 ## 9. Simulation / data note (if a prototype)
 

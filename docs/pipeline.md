@@ -47,18 +47,15 @@ Returning to a project mid-pipeline, I say something like **"where are we"** and
 
 ## The pipeline
 
-| #   | Stage                 | Skill                          | Input → Output                             | The question it answers                                                                                                       |
-| --- | --------------------- | ------------------------------ | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Define the problem    | `problem-definer`              | Rough idea → `problem.md`                  | Who exactly has this, how often, how painful, and what do they do about it today?                                             |
-| 2   | Validate              | `idea-validator`               | `problem.md` → `validation.md`             | Is this worth building? (GO / ITERATE / STOP)                                                                                 |
-| 3   | Build decision rules  | `rubric-builder`               | A fuzzy judgment call → `[name]-rubric.md` | How do I turn "I'll know it when I see it" into a rule that can be applied consistently?                                      |
-| —   | Dry run (manual)      | _(none — deliberately manual)_ | Rubric → `dry-run-log.md`                  | Does the rubric actually produce the right call on real examples?                                                             |
-| 4   | Write the PRD         | `prd-writer`                   | `validation.md` + my answers → `PRD.md`    | What is v1, what's out, who is it for, and what does "done" mean?                                                             |
-| —   | PRD review panel      | _(sub-agents, not a skill)_    | `PRD.md` → panel feedback                  | What would an engineer, designer, skeptic, customer — and where relevant a domain expert — object to before this is approved? |
-| 5   | Scope the build       | `prototype-scoper`             | `PRD.md` → `build-plan.md`                 | Skill or app? What is the ~1-week cut, and what gets left out?                                                                |
-| 6   | Design spec           | `design-spec`                  | `build-plan.md` → `design.md`              | What exactly does Claude Code build — structure, screens/output shape, data?                                                  |
-| 7   | Build                 | `vibe-coding`                  | `design.md` → working MVP in `src/`        | Build it, with guardrails for a non-technical builder.                                                                        |
-| 8   | Ship & tell the story | `case-study-writer`            | Shipped MVP → `README.md`                  | How do I present this as portfolio evidence?                                                                                  |
+| #   | Stage                 | Skill                          | Input → Output                                                        | The question it answers                                                                                                       |
+| --- | --------------------- | ------------------------------ | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Define the problem    | `problem-definer`              | Rough idea → `problem.md`                                            | Who exactly has this, how often, how painful, and what do they do about it today?                                             |
+| 2   | Validate              | `idea-validator`               | `problem.md` → `validation.md`                                       | Is this worth building? (GO / ITERATE / STOP)                                                                                 |
+| 3   | Build decision rules  | `rubric-builder`               | A fuzzy judgment call → `[name]-rubric.md`                          | How do I turn "I'll know it when I see it" into a rule that can be applied consistently?                                      |
+| —   | Dry run (manual)      | _(none — deliberately manual)_ | Rubric → `dry-run-log.md`                                           | Does the rubric actually produce the right call on real examples?                                                             |
+| 4   | Write the PRD         | `prd-writer`                   | `validation.md` + my answers → `PRD.md` (1-pager + vibe-code prompt) | What is V1, what's out, who's it for, what does "done" mean — plus the ~1-week cut and design direction? Runs an internal review panel before I sign off. |
+| 5   | Build                 | `vibe-coding`                  | vibe-code prompt from `PRD.md` → working MVP in `src/`              | Build it, with guardrails for a non-technical builder.                                                                        |
+| 6   | Ship & tell the story | `case-study-writer`            | Shipped MVP → `README.md`                                           | How do I present this as portfolio evidence?                                                                                  |
 
 ## Notes on specific stages
 
@@ -68,13 +65,13 @@ Returning to a project mid-pipeline, I say something like **"where are we"** and
 
 **Product vision and trade-offs are not separate stages.** They live as sections inside the PRD (stage 4). For a one-week MVP, vision is a paragraph and trade-offs are a "what we are NOT doing and why" section — not standalone processes.
 
-**Stage 4 ends with a review panel, not with my approval.** Once `prd-writer` produces the PRD, it is pressure-tested by sub-agents before I sign off: **AI Engineer, AI Product Designer, Skeptic, and Customer** always, plus a **dynamic SME** when the problem sits in a specialized industry (fintech, healthcare, legal, etc.). Each reviews through its own lens only. I read the panel's concerns, decide what to act on, and only then approve the PRD. The panel roles are defined in `CLAUDE.md`.
+**The `prd-writer` skill runs a review panel internally, before I sign off.** As part of stage 4, the PRD is pressure-tested by sub-agents before I approve it: **AI Engineer, AI Product Designer, Skeptic, and Customer** always, plus a **dynamic SME** when the problem sits in a specialized industry (fintech, healthcare, legal, etc.). Each reviews through its own lens only. I read the panel's concerns, decide what to act on, and only then approve the PRD. The panel roles are defined in `CLAUDE.md`.
 
 **The SME agent is only used with research behind it.** An AI told to "act as a domain expert" will invent domain facts confidently. So when a specialized- industry project needs an SME, the `industry-research` or `workflow-research` skill runs first and its output grounds the review. SME and research are always coupled — never one without the other. Both are built just-in-time, the first time a project actually needs them.
 
 **Panel agents are built just-in-time too.** Don't build all five upfront. Build each one the first time a project's PRD actually needs that lens.
 
-**Positioning is not a separate stage either.** It is the opening of the case study (stage 8).
+**Positioning is not a separate stage either.** It is the opening of the case study (stage 6).
 
 ## This pipeline is a draft that improves through use
 

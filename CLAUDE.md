@@ -10,7 +10,7 @@ It has three kinds of parts, and the distinction is strict:
 - **Templates** (`templates/`) — empty _shapes_ of outputs, with blanks to fill.
 - **Pipeline** (`docs/pipeline.md`) — the ordered sequence every idea travels through, and the rules for running it.
 
-Filled-in template instances (a real PRD, a real design spec) do **not** live here — they live in each individual project's own repo.
+Filled-in template instances (a real PRD, a real rubric) do **not** live here — they live in each individual project's own repo.
 
 ## Who Runs This
 
