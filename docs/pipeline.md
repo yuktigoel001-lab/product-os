@@ -53,9 +53,10 @@ Returning to a project mid-pipeline, I say something like **"where are we"** and
 | 2   | Validate              | `idea-validator`               | `problem.md` → `validation.md`                                       | Is this worth building? (GO / ITERATE / STOP)                                                                                 |
 | 3   | Build decision rules  | `rubric-builder`               | A fuzzy judgment call → `[name]-rubric.md`                          | How do I turn "I'll know it when I see it" into a rule that can be applied consistently?                                      |
 | —   | Dry run (manual)      | _(none — deliberately manual)_ | Rubric → `dry-run-log.md`                                           | Does the rubric actually produce the right call on real examples?                                                             |
-| 4   | Write the PRD         | `prd-writer`                   | `validation.md` + my answers → `PRD.md` (1-pager + vibe-code prompt) | What is V1, what's out, who's it for, what does "done" mean — plus the ~1-week cut and design direction? Runs an internal review panel before I sign off. |
-| 5   | Build                 | `vibe-coding`                  | vibe-code prompt from `PRD.md` → working MVP in `src/`              | Build it, with guardrails for a non-technical builder.                                                                        |
-| 6   | Ship & tell the story | `case-study-writer`            | Shipped MVP → `README.md`                                           | How do I present this as portfolio evidence?                                                                                  |
+| 4   | Write the PRD         | `prd-writer`                   | `validation.md` + my answers → `PRD.md` (1-pager + vibe-code prompt) | What is V1, what's out, who's it for, what does "done" mean — plus the ~1-week cut? Runs an internal review panel before I sign off. |
+| 5   | Design spec           | `design-spec`                  | `PRD.md`'s vibe-code prompt → `design.md`                          | What should V1 look like? Pull real design references, choose from 2–3 palette/style options, and produce a `design.md` the build follows. |
+| 6   | Build                 | `vibe-coding`                  | `design.md` → working MVP in `src/`                                | Build it, with guardrails for a non-technical builder.                                                                        |
+| 7   | Ship & tell the story | `case-study-writer`            | Shipped MVP → `README.md`                                           | How do I present this as portfolio evidence?                                                                                  |
 
 ## Notes on specific stages
 
@@ -71,7 +72,7 @@ Returning to a project mid-pipeline, I say something like **"where are we"** and
 
 **Panel agents are built just-in-time too.** Don't build all five upfront. Build each one the first time a project's PRD actually needs that lens.
 
-**Positioning is not a separate stage either.** It is the opening of the case study (stage 6).
+**Positioning is not a separate stage either.** It is the opening of the case study (stage 7).
 
 ## This pipeline is a draft that improves through use
 

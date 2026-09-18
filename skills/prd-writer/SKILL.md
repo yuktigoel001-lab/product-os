@@ -75,24 +75,7 @@ Keep it to roughly one page. Use this structure:
 
 After the 1-pager, produce a clean, self-contained prompt an engineer, designer, or vibe-coding tool (Claude Code, Lovable, v0) can run to build V1. This is the skill's signature output. It must be copy-pasteable and stand on its own.
 
-### Ground the design in real references (so V1 doesn't look generically AI-generated)
-
-Default AI-generated UI looks generic. Grounding the build in real, shipped design patterns makes V1 look designed. Offer the user a tiered choice — free by default, paid only if they want automation:
-
-**Free default (no subscription — recommended):** Point the user to a free UI-reference gallery and have them pick 2-3 real screens matching what they're building, then feed those patterns into the vibe-code prompt. Good free galleries:
-- **Collect UI** and **UXArchive** — real app screens organized by pattern (onboarding, sign-up, dashboards, empty states).
-- **Pttrns** — mobile design patterns by category.
-- **Land-book** — landing pages, if V1 has a marketing/landing surface.
-The manual step (user browses, picks, describes) replaces the automated pull — same grounding benefit, zero cost.
-
-**Optional automation (only if the user already has it):**
-- **VP0** — a free, AI-readable iOS design library; you paste a link and the build tool rebuilds from it. Free, but verify it fits the target platform (it's iOS-focused).
-- **Mobbin MCP** — pulls real reference screens live inside Claude Code, but requires a **paid Mobbin account**. Only suggest if the user says they have it; never assume, and never make it a requirement.
-
-**Ask the user once:** "Want to ground the design in real references? Free way: browse a gallery like Collect UI, pick 2-3 screens you like, and I'll build the prompt around those patterns. Or if you have Mobbin MCP / VP0 connected, we can pull references automatically."
-
-**However references are gathered, the rule is the same — extract patterns, never clone.** The vibe-code prompt should instruct the build tool to (1) look at the 2-3 references, (2) **write a short breakdown of the underlying patterns first — hierarchy, spacing, interaction, information density — before any UI code**, then (3) design original UI from those principles. That breakdown step is the difference between grounded design and brand-mimicry. If the user skips references entirely, fall back to plain design direction — the skill must work fully without any of these tools.
-
+Design references, palette, and style are **not** decided here — that is the job of `design-spec` (stage 5), which takes this vibe-code prompt and turns it into a `design.md` the build follows. In prd-writer, keep the prompt's design direction to a light pointer only; don't gather references or pick palettes.
 
 ```markdown
 ## Vibe-code prompt — V1 MVP
@@ -112,7 +95,7 @@ The manual step (user browses, picks, describes) replaces the automated pull —
 
 **Data:** [seeded/simulated vs live — name exactly what's mocked and what's real]
 
-**Design direction:** [just enough — tone, key layout intent, what to foreground. Not pixel specs; leave room for good design choices. If the user gathered real references (free gallery, VP0, or Mobbin): instruct the tool to write a short pattern breakdown from those references FIRST — hierarchy, spacing, interaction — then design original UI from those principles, never cloning. If no references: give plain design direction only.]
+**Design direction:** [Light pointer only — design is handled in `design-spec` (stage 5), which turns this into a `design.md`. Note just the tone and what to foreground; leave references, palette, and layout detail to design-spec.]
 
 **Definition of done:** [when this prompt has succeeded — the user can [do the core thing] end to end.]
 ```
@@ -169,4 +152,4 @@ Share the 1-pager, the vibe prompt, and the panel's concerns with the user conve
 
 ## Handoff
 
-When `PRD.md` (1-pager + vibe prompt) is final and the user approves it, the next stage is **vibe-coding (stage 5)** — it takes the vibe-code prompt and builds V1. Tell the user that's next and wait for them to start it. Do not start building automatically.
+When `PRD.md` (1-pager + vibe prompt) is final and the user approves it, the next stage is **design-spec (stage 5)** — it turns the vibe-code prompt's design direction into a `design.md`. Then **vibe-coding (stage 6)** builds V1 to that `design.md`. Tell the user design-spec is next and wait for them to start it. Do not start building automatically.
