@@ -79,3 +79,7 @@ Early and evolving — by design. Skills are built just-in-time, the first time 
 ## Credit
 
 Built with Claude Code, directed by me. The pipeline draws on ideas from the PM community building with Claude, adapted into a personal system.
+
+## License
+
+© 2026 Yukti Goel. All rights reserved. This repository is proprietary — see [LICENSE](LICENSE). It's public so you can read it and see how it's built; it is **not** licensed for reuse, copying, modification, or redistribution without written permission.
